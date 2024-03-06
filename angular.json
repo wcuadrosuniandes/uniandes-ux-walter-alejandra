@@ -5,7 +5,17 @@
   "projects": {
     "timelyhealthapp": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -27,7 +37,12 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -93,6 +108,6 @@
     }
   },
   "cli": {
-    "analytics": "608bc3d9-ca33-4df1-aea8-7b930ca43bcf"
+    "analytics": "efbbedc9-57fe-4429-b05a-951f32de1341"
   }
 }
