@@ -1,1 +1,235 @@
-<p>create-contact works!</p>
+<app-menu></app-menu>
+<div class="container-fluid bg-white " >
+    <div class="row" style="height: 83vh;">
+      <div class="col-3 sdbar" style="height: 82vh;">
+            <app-sidebar></app-sidebar>
+      </div>
+        <div class="col-9">
+            <div class="row d-flex justify-content-center align-items-md-start">
+                <div class="col-12 mt-4">
+                    <div class="d-flex justify-content-center mb-4"><h1>CREAR CONTACTO</h1></div>
+                </div>
+                <div class="col-6 mb-4 ">
+                    <form
+                        [formGroup]="createCtForm"
+                        (ngSubmit)="
+                            !createCtForm.invalid
+                        "
+                        >
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="nombre">Nombre</label>
+                                        <input
+                                        novalidate
+                                        id="nombre"
+                                        class="form-control"
+                                        formControlName="nombre"
+                                        placeholder="Nombre"
+                                        [ngClass]="{
+                                            'is-invalid':
+                                            createCtForm.get('nombre')!.touched &&
+                                            createCtForm.get('nombre')!.errors
+                                        }"
+                                        />
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="
+                                            createCtForm.get('nombre')!.hasError('required') &&
+                                            createCtForm.get('nombre')!.touched
+                                        "
+                                        >
+                                        Debe ingresar un nombre
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createCtForm.get('nombre')!.hasError('minlength')"
+                                        >
+                                        El contenido es muy corto, debe tener al menos
+                                        {{
+                                            createCtForm.get("nombre")!.errors?.["minlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createCtForm.get('nombre')!.hasError('maxlength')"
+                                        >
+                                        El contenido es muy largo, debe tener máximo
+                                        {{
+                                            createCtForm.get("nombre")!.errors?.["maxlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="nombre">Parentesco</label>
+                                        <input
+                                        novalidate
+                                        id="parentesco"
+                                        class="form-control"
+                                        formControlName="parentesco"
+                                        placeholder="Parentesco"
+                                        [ngClass]="{
+                                            'is-invalid':
+                                            createCtForm.get('parentesco')!.touched &&
+                                            createCtForm.get('parentesco')!.errors
+                                        }"
+                                        />
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="
+                                            createCtForm.get('parentesco')!.hasError('required') &&
+                                            createCtForm.get('parentesco')!.touched
+                                        "
+                                        >
+                                        Debe ingresar una parentesco 
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createCtForm.get('parentesco')!.hasError('minlength')"
+                                        >
+                                        El contenido es muy corto, debe tener al menos
+                                        {{
+                                            createCtForm.get("parentesco")!.errors?.["minlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createCtForm.get('parentesco')!.hasError('maxlength')"
+                                        >
+                                        El contenido es muy largo, debe tener máximo
+                                        {{
+                                            createCtForm.get("parentesco")!.errors?.["maxlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="correo">Correo electrónico</label>
+                                        <input
+                                            novalidate
+                                            id="correo"
+                                            class="form-control"
+                                            formControlName="correo"
+                                            placeholder="correo"
+                                            [ngClass]="{
+                                            'is-invalid':
+                                                createCtForm.get('correo')!.touched &&
+                                                createCtForm.get('correo')!.errors
+                                            }"
+                                        />
+                                        <div
+                                            class="invalid-feedback"
+                                            *ngIf="
+                                            createCtForm.get('correo')!.hasError('serverError') &&
+                                            createCtForm.get('correo')!.touched
+                                            "
+                                        >
+                                            {{ createCtForm.get("correo")!.errors?.["serverError"] }}
+                                        </div>
+                                        <div
+                                            class="invalid-feedback"
+                                            *ngIf="
+                                            createCtForm.get('correo')!.hasError('required') &&
+                                            createCtForm.get('correo')!.touched
+                                            "
+                                        >
+                                            Debe ingresar un correo válido
+                                        </div>
+                                        <div
+                                            class="invalid-feedback"
+                                            *ngIf="createCtForm.get('correo')!.hasError('minlength')"
+                                        >
+                                            El contenido es muy corto, debe tener al menos
+                                            {{
+                                            createCtForm.get("correo")!.errors?.["minlength"].requiredLength
+                                            }}
+                                            caracteres.
+                                        </div>
+                                        <div
+                                            class="invalid-feedback"
+                                            *ngIf="createCtForm.get('correo')!.hasError('maxlength')"
+                                        >
+                                            El contenido es muy largo, debe tener máximo
+                                            {{
+                                            createCtForm.get("correo")!.errors?.["maxlength"].requiredLength
+                                            }}
+                                            caracteres.
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="nombre">Número de contacto</label>
+                                        <input
+                                        novalidate
+                                        id="contacto"
+                                        class="form-control"
+                                        formControlName="contacto"
+                                        placeholder="Contacto"
+                                        [ngClass]="{
+                                            'is-invalid':
+                                            createCtForm.get('contacto')!.touched &&
+                                            createCtForm.get('contacto')!.errors
+                                        }"
+                                        />
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="
+                                            createCtForm.get('contacto')!.hasError('required') &&
+                                            createCtForm.get('contacto')!.touched
+                                        "
+                                        >
+                                        Debe ingresar un contacto
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createCtForm.get('contacto')!.hasError('minlength')"
+                                        >
+                                        El contenido es muy corto, debe tener al menos
+                                        {{
+                                            createCtForm.get("contacto")!.errors?.["minlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createCtForm.get('contacto')!.hasError('maxlength')"
+                                        >
+                                        El contenido es muy largo, debe tener máximo
+                                        {{
+                                            createCtForm.get("contacto")!.errors?.["maxlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="text-center d-flex justify-content-evenly">
+
+                                <button
+                                    type="submit"
+                                    class="btn button-primary mr-2"
+                                    [disabled]="!createCtForm.valid"
+                                    [routerLink]="'/medicamentos'"
+                                >
+                                    Registrarse
+                                </button>
+                                <button
+                                    class="btn button-primary ml-3"
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#staticBackdrop"
+                                    [routerLink]="'/medicamentos'"
+                                >
+                                    Cancelar
+                                </button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

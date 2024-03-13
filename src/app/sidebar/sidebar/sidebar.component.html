@@ -1,0 +1,20 @@
+<ul class="nav flex-column  py-4  align-items-start" id="menu">
+    <li class="nav-item mt-4">
+        <a href="#" class="nav-link text-truncate">
+            <span class="ms-1 d-none d-sm-inline">Inicio</span>
+        </a>
+    </li>
+    <li class="dropdown">
+        <a  class="nav-link dropdown-toggle  text-truncate" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+           <span class="ms-1 d-none d-sm-inline">Gestión medicamentos</span>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdown">
+            <li><a class="dropdown-item" [routerLink]="'/medicamentos'">Ver listado medicamentos</a></li>
+            <li><a class="dropdown-item" [routerLink]="'/medicamentos/crear'">Crear medicamento</a></li>
+        </ul>
+    </li>
+    <li>
+        <a [routerLink]="'/contacto/crear'" class="nav-link text-truncate">
+        <span class="ms-1 d-none d-sm-inline">Crear contacto</span></a>
+    </li>
+</ul>

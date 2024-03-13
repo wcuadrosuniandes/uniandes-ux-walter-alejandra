@@ -1,1 +1,142 @@
-<p>login works!</p>
+<nav class="f-block navbar navbar-light color-secondary w-100">
+    <div class="container-fluid">
+        <a class="navbar-brand ms-2" href="#">
+            <img src="assets/logoN.png" alt="" width="155" height="55" class="d-inline-block align-text-top">
+        </a>
+        <div class="d-flex">
+            <button [routerLink]="'/registro'" class="btn  button-primary me-2 px-4" type="submit">Registrarse</button>
+        </div>
+    </div>
+</nav>
+<section>
+    <div class="container-fluid py-5" style="height: 83vh;">
+      <div class="row d-flex bg-white justify-content-center align-items-center h-100">
+        <div class="col trap-wrapper1">
+            <div class="trap1 me-4 my-2">
+                <div class="divform">
+                    <form
+                    [formGroup]="loginForm"
+                    (ngSubmit)="
+                      !loginForm.invalid
+                    "
+                    >
+                        <div class="row">
+                        <div class="col">
+                            <!-- correo-->
+                            <div class="form-group mb-3">
+                            <label for="correo">Correo electrónico</label>
+                            <input
+                                novalidate
+                                id="correo"
+                                class="form-control"
+                                formControlName="correo"
+                                placeholder="correo"
+                                [ngClass]="{
+                                'is-invalid':
+                                    loginForm.get('correo')!.touched &&
+                                    loginForm.get('correo')!.errors
+                                }"
+                            />
+                            <div
+                                class="invalid-feedback"
+                                *ngIf="
+                                loginForm.get('correo')!.hasError('serverError') &&
+                                loginForm.get('correo')!.touched
+                                "
+                            >
+                                {{ loginForm.get("correo")!.errors?.["serverError"] }}
+                            </div>
+                            <div
+                                class="invalid-feedback"
+                                *ngIf="
+                                loginForm.get('correo')!.hasError('required') &&
+                                loginForm.get('correo')!.touched
+                                "
+                            >
+                                Debe ingresar un correovalido para registrar login
+                            </div>
+                            <div
+                                class="invalid-feedback"
+                                *ngIf="loginForm.get('correo')!.hasError('minlength')"
+                            >
+                                El contenido es muy corto, debe tener al menos
+                                {{
+                                loginForm.get("correo")!.errors?.["minlength"].requiredLength
+                                }}
+                                caracteres.
+                            </div>
+                            <div
+                                class="invalid-feedback"
+                                *ngIf="loginForm.get('correo')!.hasError('maxlength')"
+                            >
+                                El contenido es muy largo, debe tener máximo
+                                {{
+                                loginForm.get("correo")!.errors?.["maxlength"].requiredLength
+                                }}
+                                caracteres.
+                            </div>
+                            </div>
+                    
+                            <div class="form-group mb-3">
+                            <label for="contrasena"
+                                >Contraseña</label
+                            >
+                                <input
+                                formControlName="contrasena"
+                                type="password"
+                                class="form-control"
+                                placeholder="*********"
+                                />
+                            <div
+                                class="invalid-feedback"
+                                *ngIf="
+                                loginForm.get('contrasena')?.hasError('required') &&
+                                loginForm.get('contrasena')?.touched
+                                "
+                            >
+                                Debe ingresar una contraseña para registrar login
+                            </div>
+                            <div
+                                class="invalid-feedback"
+                                *ngIf="loginForm.get('contrasena')?.hasError('maxlength')"
+                            >
+                                La contraseña no debe exceder los 50 carácteres
+                            </div>
+                            <div
+                                class="invalid-feedback"
+                                *ngIf="loginForm.get('contrasena')?.hasError('minlength')"
+                            >
+                                La contraseña debe tener más de 4 carácteres
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    
+                        <div class="text-center">
+
+                            <button
+                                type="submit"
+                                class="btn button-primary"
+                                [routerLink]="'/medicamentos'"
+                                [disabled]="!loginForm.valid"
+                            >
+                                Iniciar Sesión
+                            </button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <strong>¿No estas registrado? </strong> <a [routerLink]="'/registro'">Registrate Aquí</a> 
+                        </div>
+                  </form>
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col trap-wrapper2">
+            <div class="trap2 me-4 my-2">
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>

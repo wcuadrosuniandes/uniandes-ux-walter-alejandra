@@ -1,1 +1,241 @@
-<p>edit-medication works!</p>
+<app-menu></app-menu>
+
+<div class="container-fluid bg-white " >
+    <div class="row" style="height: 83vh;">
+      <div class="col-3 sdbar" style="height: 82vh;">
+            <app-sidebar></app-sidebar>
+      </div>
+        <div class="col-9">
+            <div class="row d-flex justify-content-center align-items-md-start">
+                <div class="col-12 mt-4">
+                    <div class="d-flex justify-content-center mb-4"><h1>EDITAR MEDICAMENTO</h1></div>
+                </div>
+                <div class="col-6 mb-4 ">
+                    <form
+                        [formGroup]="createMedForm"
+                        (ngSubmit)="
+                            !createMedForm.invalid
+                        "
+                        >
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="nombre">Nombre</label>
+                                        <input
+                                        novalidate
+                                        id="nombre"
+                                        class="form-control"
+                                        formControlName="nombre"
+                                        placeholder="Nombre"
+                                        [ngClass]="{
+                                            'is-invalid':
+                                            createMedForm.get('nombre')!.touched &&
+                                            createMedForm.get('nombre')!.errors
+                                        }"
+                                        />
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="
+                                            createMedForm.get('nombre')!.hasError('required') &&
+                                            createMedForm.get('nombre')!.touched
+                                        "
+                                        >
+                                        Debe ingresar un nombre
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createMedForm.get('nombre')!.hasError('minlength')"
+                                        >
+                                        El contenido es muy corto, debe tener al menos
+                                        {{
+                                            createMedForm.get("nombre")!.errors?.["minlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createMedForm.get('nombre')!.hasError('maxlength')"
+                                        >
+                                        El contenido es muy largo, debe tener máximo
+                                        {{
+                                            createMedForm.get("nombre")!.errors?.["maxlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 form-group mb-3">
+                                            <label for="cantidad_dosis">Cantidad dosis</label>
+                                            <input
+                                            novalidate
+                                            id="cantidad_dosis"
+                                            class="form-control"
+                                            formControlName="cantidad_dosis"
+                                            placeholder="Cantidad dosis"
+                                            value="jjj"
+                                            [ngClass]="{
+                                                'is-invalid':
+                                                createMedForm.get('cantidad_dosis')!.touched &&
+                                                createMedForm.get('cantidad_dosis')!.errors
+                                            }"
+                                            />
+                                            <div
+                                            class="invalid-feedback"
+                                            *ngIf="
+                                                createMedForm.get('cantidad_dosis')!.hasError('required') &&
+                                                createMedForm.get('cantidad_dosis')!.touched
+                                            "
+                                            >
+                                            Debe ingresar un cantidad dosis
+                                            </div>
+                                            <div
+                                            class="invalid-feedback"
+                                            *ngIf="createMedForm.get('cantidad_dosis')!.hasError('minlength')"
+                                            >
+                                            El contenido es muy corto, debe tener al menos
+                                            {{
+                                                createMedForm.get("cantidad_dosis")!.errors?.["minlength"].requiredLength
+                                            }}
+                                            caracteres.
+                                            </div>
+                                            <div
+                                            class="invalid-feedback"
+                                            *ngIf="createMedForm.get('cantidad_dosis')!.hasError('maxlength')"
+                                            >
+                                            El contenido es muy largo, debe tener máximo
+                                            {{
+                                                createMedForm.get("cantidad_dosis")!.errors?.["maxlength"].requiredLength
+                                            }}
+                                            caracteres.
+                                            </div>
+                                        </div>
+                                        <div class="col-6 form-group mb-3">
+                                            <label for="cantidad_dosis">Unidad medida</label>
+                                            <select 
+                                                class="form-select" 
+                                                novalidate
+                                                id="unidad_medida"
+                                                formControlName="unidad_medida"
+                                                [ngClass]="{
+                                                    'is-invalid':
+                                                    createMedForm.get('unidad_medida')!.touched &&
+                                                    createMedForm.get('unidad_medida')!.errors
+                                                }"
+
+                                            >
+                                                <option selected>mg</option>
+                                                <option value="1">mg</option>
+                                                <option value="2">Tableta</option>
+                                            </select>
+                                            <div
+                                            class="invalid-feedback"
+                                            *ngIf="
+                                                createMedForm.get('unidad_medida')!.hasError('required') &&
+                                                createMedForm.get('unidad_medida')!.touched
+                                            "
+                                            >
+                                            Debe seleccionar una unidad de medida
+                                            </div>
+                                            <div
+                                            class="invalid-feedback"
+                                            *ngIf="createMedForm.get('cantidad_dosis')!.hasError('minlength')"
+                                            >
+                                            El contenido es muy corto, debe tener al menos
+                                            {{
+                                                createMedForm.get("unidad_medida")!.errors?.["minlength"].requiredLength
+                                            }}
+                                            caracteres.
+                                            </div>
+                                            <div
+                                            class="invalid-feedback"
+                                            *ngIf="createMedForm.get('unidad_medida')!.hasError('maxlength')"
+                                            >
+                                            El contenido es muy largo, debe tener máximo
+                                            {{
+                                                createMedForm.get("unidad_medida")!.errors?.["maxlength"].requiredLength
+                                            }}
+                                            caracteres.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="nombre">Frecuencia</label>
+                                        <input
+                                        novalidate
+                                        id="frecuencia"
+                                        class="form-control"
+                                        formControlName="frecuencia"
+                                        placeholder="Frecuencia"
+                                        [ngClass]="{
+                                            'is-invalid':
+                                            createMedForm.get('frecuencia')!.touched &&
+                                            createMedForm.get('frecuencia')!.errors
+                                        }"
+                                        />
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="
+                                            createMedForm.get('frecuencia')!.hasError('required') &&
+                                            createMedForm.get('frecuencia')!.touched
+                                        "
+                                        >
+                                        Debe ingresar una frecuencia de suministro
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createMedForm.get('frecuencia')!.hasError('minlength')"
+                                        >
+                                        El contenido es muy corto, debe tener al menos
+                                        {{
+                                            createMedForm.get("frecuencia")!.errors?.["minlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                        <div
+                                        class="invalid-feedback"
+                                        *ngIf="createMedForm.get('frecuencia')!.hasError('maxlength')"
+                                        >
+                                        El contenido es muy largo, debe tener máximo
+                                        {{
+                                            createMedForm.get("frecuencia")!.errors?.["maxlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="contrasena"
+                                            >Descripcion</label
+                                        >
+                                        <textarea class="form-control"  rows="3"></textarea>
+                                        
+                                    </div>
+
+                                </div>
+                            </div>
+                        
+                            <div class="text-center d-flex justify-content-evenly">
+
+                                <button
+                                    type="submit"
+                                    class="btn button-primary mr-2"
+                                    [disabled]="!createMedForm.valid"
+                                    [routerLink]="'/medicamentos'"
+                                >
+                                    Registrarse
+                                </button>
+                                <button
+                                    class="btn button-primary ml-3"
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#staticBackdrop"
+                                    [routerLink]="'/medicamentos'"
+                                >
+                                    Cancelar
+                                </button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

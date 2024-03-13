@@ -1,1 +1,282 @@
-<p>register works!</p>
+<nav class="f-block navbar navbar-light color-secondary w-100">
+    <div class="container-fluid">
+        <a class="navbar-brand ms-2" href="#">
+            <img src="assets/logoN.png" alt="" width="155" height="55" class="d-inline-block align-text-top">
+        </a>
+        <div class="d-flex">
+            <button  [routerLink]="'/'" class="btn  button-primary me-2 px-4" type="submit">Iniciar sesión</button>
+        </div>
+    </div>
+</nav>
+<section>
+    <div class="container-fluid " style="height: 83vh;">
+      <div class="row d-flex bg-register justify-content-center align-items-center h-100 ">
+    
+        <div class="col-4">
+            <div class="p-4 sh-box bg-white">
+                <div class="d-flex justify-content-center"><h1>REGISTRO</h1></div>
+                <form
+                    [formGroup]="registerForm"
+                    (ngSubmit)="
+                        !registerForm.invalid
+                    "
+                    >
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group mb-3">
+                                    <label for="nombre">Nombre</label>
+                                    <input
+                                    novalidate
+                                    id="nombre"
+                                    class="form-control"
+                                    formControlName="nombre"
+                                    placeholder="Nombre"
+                                    [ngClass]="{
+                                        'is-invalid':
+                                        registerForm.get('nombre')!.touched &&
+                                        registerForm.get('nombre')!.errors
+                                    }"
+                                    />
+                                    <div
+                                    class="invalid-feedback"
+                                    *ngIf="
+                                        registerForm.get('nombre')!.hasError('required') &&
+                                        registerForm.get('nombre')!.touched
+                                    "
+                                    >
+                                    Debe ingresar un nombre
+                                    </div>
+                                    <div
+                                    class="invalid-feedback"
+                                    *ngIf="registerForm.get('nombre')!.hasError('minlength')"
+                                    >
+                                    El contenido es muy corto, debe tener al menos
+                                    {{
+                                        registerForm.get("nombre")!.errors?.["minlength"].requiredLength
+                                    }}
+                                    caracteres.
+                                    </div>
+                                    <div
+                                    class="invalid-feedback"
+                                    *ngIf="registerForm.get('nombre')!.hasError('maxlength')"
+                                    >
+                                    El contenido es muy largo, debe tener máximo
+                                    {{
+                                        registerForm.get("nombre")!.errors?.["maxlength"].requiredLength
+                                    }}
+                                    caracteres.
+                                    </div>
+                                </div>
+                                <!-- Apellido Chef-->
+                                <div class="form-group mb-3">
+                                    <label for="apellido">Apellido</label>
+                                    <input
+                                    novalidate
+                                    id="apellido"
+                                    class="form-control"
+                                    formControlName="apellido"
+                                    placeholder="Apellido"
+                                    [ngClass]="{
+                                        'is-invalid':
+                                        registerForm.get('apellido')!.touched &&
+                                        registerForm.get('apellido')!.errors
+                                    }"
+                                    />
+                                    <div
+                                    class="invalid-feedback"
+                                    *ngIf="
+                                        registerForm.get('apellido')!.hasError('required') &&
+                                        registerForm.get('apellido')!.touched
+                                    "
+                                    >
+                                    Debe ingresar un apellido
+                                    </div>
+                                    <div
+                                    class="invalid-feedback"
+                                    *ngIf="registerForm.get('apellido')!.hasError('minlength')"
+                                    >
+                                    El contenido es muy corto, debe tener al menos
+                                    {{
+                                        registerForm.get("apellido")!.errors?.["minlength"].requiredLength
+                                    }}
+                                    caracteres.
+                                    </div>
+                                    <div
+                                    class="invalid-feedback"
+                                    *ngIf="registerForm.get('apellido')!.hasError('maxlength')"
+                                    >
+                                    El contenido es muy largo, debe tener máximo
+                                    {{
+                                        registerForm.get("apellido")!.errors?.["maxlength"].requiredLength
+                                    }}
+                                    caracteres.
+                                    </div>
+                                </div>
+                                <!-- correo-->
+                                <div class="form-group mb-3">
+                                    <label for="correo">Correo electrónico</label>
+                                    <input
+                                        novalidate
+                                        id="correo"
+                                        class="form-control"
+                                        formControlName="correo"
+                                        placeholder="correo"
+                                        [ngClass]="{
+                                        'is-invalid':
+                                            registerForm.get('correo')!.touched &&
+                                            registerForm.get('correo')!.errors
+                                        }"
+                                    />
+                                    <div
+                                        class="invalid-feedback"
+                                        *ngIf="
+                                        registerForm.get('correo')!.hasError('serverError') &&
+                                        registerForm.get('correo')!.touched
+                                        "
+                                    >
+                                        {{ registerForm.get("correo")!.errors?.["serverError"] }}
+                                    </div>
+                                    <div
+                                        class="invalid-feedback"
+                                        *ngIf="
+                                        registerForm.get('correo')!.hasError('required') &&
+                                        registerForm.get('correo')!.touched
+                                        "
+                                    >
+                                        Debe ingresar un correo válido
+                                    </div>
+                                    <div
+                                        class="invalid-feedback"
+                                        *ngIf="registerForm.get('correo')!.hasError('minlength')"
+                                    >
+                                        El contenido es muy corto, debe tener al menos
+                                        {{
+                                        registerForm.get("correo")!.errors?.["minlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                    </div>
+                                    <div
+                                        class="invalid-feedback"
+                                        *ngIf="registerForm.get('correo')!.hasError('maxlength')"
+                                    >
+                                        El contenido es muy largo, debe tener máximo
+                                        {{
+                                        registerForm.get("correo")!.errors?.["maxlength"].requiredLength
+                                        }}
+                                        caracteres.
+                                    </div>
+                                </div>
+                        
+                                <div class="form-group mb-3">
+                                    <label for="contrasena"
+                                        >Contraseña</label
+                                    >
+                                        <input
+                                        formControlName="contrasena"
+                                        type="password"
+                                        class="form-control"
+                                        placeholder="*********"
+                                        />
+                                    <div
+                                        class="invalid-feedback"
+                                        *ngIf="
+                                        registerForm.get('contrasena')?.hasError('required') 
+                                        "
+                                    >
+                                        Debe ingresar una contraseña para
+                                    </div>
+                                    <div
+                                        class="invalid-feedback"
+                                        *ngIf="registerForm.get('contrasena')?.hasError('maxlength')"
+                                    >
+                                        La contraseña no debe exceder los 50 carácteres
+                                    </div>
+                                    <div
+                                        class="invalid-feedback"
+                                        *ngIf="registerForm.get('contrasena')?.hasError('minlength')"
+                                    >
+                                        La contraseña debe tener más de 4 carácteres
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="confirmContrasena" class=" col-form-label">Confirmar contraseña</label>
+                                    <input
+                                        formControlName="confirmContrasena"
+                                        type="password"
+                                        class="form-control"
+                                        placeholder="*********"
+                                    />
+                                   
+                                    <div
+                                    class="alert alert-danger my-3"
+                                    *ngIf="registerForm.get('confirmContrasena')?.hasError('maxlength')"
+                                    >
+                                    La contraseña no debe exceder los 50 carácteres
+                                    </div>
+                                    <div
+                                    class="alert alert-danger my-3"
+                                    *ngIf="registerForm.get('confirmContrasena')?.hasError('minlength')"
+                                    >
+                                    La contraseña debe tener más de 4 carácteres
+                                    </div>
+                                    <div
+                                    class="alert alert-danger my-3"
+                                    *ngIf="
+                                        registerForm.get('confirmContrasena')?.value !==
+                                        registerForm.get('contrasena')?.value and 
+                                    "
+                                    >
+                                    Las contraseñas no coinciden
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="text-center d-flex justify-content-evenly">
+
+                            <button
+                                type="submit"
+                                class="btn button-primary mr-2"
+                                [routerLink]="'/'"
+                                [disabled]="!registerForm.valid"
+                            >
+                                Registrarse
+                            </button>
+                            <button
+                                class="btn button-primary ml-3"
+                                data-bs-toggle="modal" 
+                                data-bs-target="#staticBackdrop"
+                                (click)="cancelarRegister()"
+                            >
+                                Cancelar
+                            </button>
+                        </div>
+                </form>
+            </div>
+                
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <button class="btn btn-primary" (click)="openModal()">Open modal</button> -->
+
+  
+  <!-- Modal -->
+ <!--  <div class="modal fade show" aria-modal="true" role="dialog"  id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+

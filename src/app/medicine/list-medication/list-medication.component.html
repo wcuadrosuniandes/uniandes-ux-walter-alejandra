@@ -1,1 +1,81 @@
-<p>list-medication works!</p>
+<app-menu></app-menu>
+<div class="container-fluid bg-white " >
+    <div class="row" style="height: 83vh;">
+      <div class="col-3 sdbar" style="height: 82vh;">
+            <app-sidebar></app-sidebar>
+      </div>
+        <div class="col-9">
+            <div class="row d-flex justify-content-center align-items-md-start">
+                <div class="col-12 mt-4">
+                    <div class="d-flex justify-content-center mb-4"><h1>MEDICAMENTOS</h1></div>
+                </div>
+                <div class="col-8 d-flex justify-content-end ">
+                    <button  [routerLink]="'/medicamentos/crear'" class="btn  button-primary me-2 px-4" type="submit">Crear</button>
+                </div>
+                <div class="col-10 mb-4 ">
+                    <table class="mt-4">
+                        <thead >
+                        <tr >
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Frecuencia</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of array">
+                                <td>{{item.nombre}}</td>
+                                <td>{{item.cantidad}}</td>
+                                <td>{{item.frecuencia}}</td>
+                                <td> <button
+                                    [disabled]="false"
+                                    type="button"
+                                    class="btn ver"
+                                    title="ver"
+                                >
+                                <i class="fa-solid fa-eye"></i></button>
+                            
+                                <button
+                                [disabled]="false"
+                                [routerLink]="'/medicamentos/editar'"
+                                type="button"
+                                class="btn editar"
+                                title="editar">
+                                <i class="fa-solid fa-pen-to-square"></i></button>
+                                <button
+                                [disabled]="false"
+                                type="button"
+                                class="btn eliminar"
+                                title="eliminar">
+                                <i class="fa-solid fa-trash-can"></i></button>
+                                &nbsp;
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-10 mt-4 d-flex justify-content-center ">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                          <li class="page-item disabled">
+                            <span class="page-link"><</span>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item active">
+                            <span class="page-link">
+                              2
+                              <span class="sr-only"></span>
+                            </span>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">></a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>

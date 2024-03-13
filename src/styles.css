@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color:  #D8DCF0;
+}
+
+.button-primary {
+    background-color: #03115B;
+    color: #ffffff; 
+}
+.button-primary:hover{
+    background-color: #7886CD;
+}
+
+.color-secondary {
+    background-color: #4656A8;
+    color: #ffffff;
+}
+
+.ft {
+    background-color: #4656A8;
+    color: #ffffff;
+}
+.trap-wrapper1 {
+    filter: drop-shadow(3px 10px 3px rgba(50, 50, 0, 0.5));
+    margin-right: -3rem;
+}
+.trap-wrapper2 {
+    filter: drop-shadow(3px 10px 3px rgba(50, 50, 0, 0.5));
+    margin-left: -3rem;
+}
+.trap2 {
+    background-image: url("/assets/bg-login.jpg");
+    clip-path:polygon(15% 0, 100% 0%, 100% 100%, 0 100%);
+    background-size: cover;
+
+    height:430px;
+    background-repeat: repeat;
+    border-radius: 0.85rem;
+}
+.trap1 {
+    background-color: #ffffff;
+    clip-path:polygon(0% 0, 100% 0%, 85% 100%, 0 100%);
+    background-size: cover;
+
+    height:430px;
+    background-repeat: repeat;
+    border-radius: 0.90rem;
+}
+.divform {
+    width: 50%;
+    margin-left: 25%;
+    padding-top: 10%;
+}
+.sdbar {
+    box-shadow: 3px 5px rgba(50, 50, 0, 0.5);
+}
+
+.sh-box {
+    filter: drop-shadow(3px 10px 3px rgba(50, 50, 0, 0.5));
+
+}
+.bg-register {
+    background-image: url("/assets/Fondo.png");
+}
+.modal {}
+
+
+
